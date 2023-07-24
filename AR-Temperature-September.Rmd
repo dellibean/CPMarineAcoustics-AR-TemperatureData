@@ -1,0 +1,156 @@
+---
+title: "Acoustic Release Data September"
+author: "Adelle Wilkin"
+date: "7/5/2023"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+getwd()
+library(tidyverse)
+library(here)
+library(janitor)
+library(swirl) 
+library(ggplot2)
+library(ggpubr)
+library(broom)
+library(AICcmodavg)
+library(rcompanion)
+library(tidyverse)
+library(broom)
+AR.Data<-read.csv("VUE_Export_RAW.csv")
+AR.Data.Temp<-AR.Data<- subset(AR.Data, Description == "Temperature")
+```
+
+```{r}
+#Data accounts for a 7 hour offset in the time of deployment and AR time
+#stamp (12:00pm actual 19:00 AR)
+#September Deployment Day 1 (September 26) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 1") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+start_index <- 161
+end_index <- 172
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+
+```
+#Sept Deployment day 2 (September 27) Temperature Record
+```{r}
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 2") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 173
+end_index <- 196
+
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#Sept Deployment day 3 (September 28) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[189:212], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 3") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 197
+end_index <- 220
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+```{r}
+#Sept Deployment day 4 (September 29) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 4") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 221
+end_index <- 244
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+```{r}
+#Sept Deployment day 5 (September 29) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 5") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 245
+end_index <- 268
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#Sept Deployment day 6 (September 30) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 6") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 269
+end_index <- 292
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#Sept Deployment day 7 (October 1) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 7") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 293
+end_index <- 316
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#Sept Deployment day 7 (October 1) Temperature Record
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 7") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 317
+end_index <- 326
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#September Deployment Temperature Record Avila.
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability September Deployment") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 160
+end_index <- 326
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+

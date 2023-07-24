@@ -1,0 +1,191 @@
+---
+title: "Acoustic-Release-Temp-February"
+author: "Adelle Wilkin"
+date: '2023-07-18'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+getwd()
+library(tidyverse)
+library(here)
+library(janitor)
+library(swirl) 
+library(ggplot2)
+library(ggpubr)
+library(broom)
+library(AICcmodavg)
+library(rcompanion)
+library(tidyverse)
+library(broom)
+AR.Data<-read.csv("VUE_Export_RAW.csv")
+AR.Data.Temp<-AR.Data<- subset(AR.Data, Description == "Temperature")
+```
+
+
+```{r }
+#February Deployment Day 1 Acoustic release data.
+#February 1 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 1") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 349
+end_index <- 336
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#February Deployment Day 2 Acoustic release data.
+#February 2 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 2") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 367
+end_index <- 389
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#February Deployment Day 3 Acoustic release data
+#February 3 2023 (Offset 8 hours 7:40am to 15:40).
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 3") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 390
+end_index <- 414
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#February Deployment Day 4 Acoustic release data.
+#February 4 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 4") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 415
+end_index <- 438
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#February Deployment Day 5 Acoustic release data.
+#February 5 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 5") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 439
+end_index <- 462
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+
+```{r}
+#February Deployment Day 6 Acoustic release data
+#February 6 2023 (Offset 8 hours 7:40am to 15:40).
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 6") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 463
+end_index <- 486
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+```{r}
+#February Deployment Day 7 Acoustic release data
+#February 7 2023 (Offset 8 hours 7:40am to 15:40).
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 7") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 487
+end_index <- 509
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+
+```{r}
+#February Deployment Day 8 Acoustic release data.
+#February 8 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 8") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 510
+end_index <- 534
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
+
+
+```{r}
+#February Deployment Day 9 Acoustic release data.
+#February 9 2023 (Offset 8 hours 7:40am to 15:40)
+plot_line_graph <- function(x_values, y_values, start_index, end_index) {
+  df <- data.frame(x = x_values[start_index:end_index], y = y_values[start_index:end_index])
+
+  ggplot(df, aes(x, y)) +
+    geom_point() +
+    labs(x = "Date and Time (UTC)", y = "Temperature (C)", title = " Acoustic Release Temperature Variability Day 9") +
+    theme_minimal()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+
+start_index <- 534
+end_index <- 557
+
+# Plot the line graph with the specified range of data points
+plot_line_graph(AR.Data.Temp$Date.and.Time..UTC., AR.Data.Temp$Data, start_index, end_index)
+```
